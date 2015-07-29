@@ -1,0 +1,324 @@
+
+<html>
+<head>
+    <script language="javascript" type='text/javascript' >
+
+	
+	
+        function addFields(){
+            
+            var number = document.getElementById("member").value;
+
+
+ 
+            var main= document.getElementById("main");
+            var myform = document.getElementById("prime");
+            
+           
+
+            for (i=0;i<number;i++){
+            	myform.innerHTML += '&emsp;';
+                myform.innerHTML += '&emsp;';
+                myform.innerHTML += '&emsp;';
+              
+           
+                myform.appendChild(document.createTextNode("Item"+(i+1)));
+                myform.innerHTML += '&nbsp;';
+                myform.innerHTML += '&nbsp;';
+               
+    
+               myform.appendChild(document.createTextNode("Height"+(i+1)));
+               myform.innerHTML += '&nbsp;';
+                var input1 = document.createElement("input");
+                input1.type = "text";
+                input1.name = "height" + (i+1);
+                input1.id="height" + (i+1);
+               
+                 myform.appendChild(input1);
+                
+                
+                  myform.innerHTML += '&nbsp;';
+ myform.innerHTML += '&nbsp;';
+
+                 myform.appendChild(document.createTextNode("Breadth"+(i+1)));
+ myform.innerHTML += '&nbsp;';
+                var input2 = document.createElement("input");
+                  input2.type = "text";
+                  input2.name = "breadth" + (i+1);
+                  input2.id="breadth"+(i+1);
+                    myform.appendChild(input2);
+               
+                
+                   myform.innerHTML += '&nbsp;';
+ myform.innerHTML += '&nbsp;';
+                
+                 
+                   myform.appendChild(document.createTextNode("width"+(i+1)));
+                   myform.innerHTML += '&nbsp;';
+                  
+                     var input3 = document.createElement("input");
+                    input3.type = "text";
+                    input3.name = "width" + (i+1);
+                    input3.id="width"+(i+1);
+                    
+                     myform.appendChild(input3); 
+ 
+                    myform.appendChild(document.createElement("br"));
+                    myform.appendChild(document.createElement("br"));
+                 
+                              
+            }
+                              
+                
+        }
+
+
+function apost(){
+	 
+ var member=document.getElementById("member").value;
+if(member==NaN || member==0 || member==""|| member==' ' || member===undefined )
+{
+ document.getElementById("hidex").innerHTML= "please enter no of items " ;
+               return false;
+
+
+}
+
+       for(i=0;i<member;i++)
+{                    
+var hx="height"+(i+1);
+var bx="breadth"+(i+1);
+var wx="width"+(i+1);
+var x=document.getElementById(hx).value;
+ var y=document.getElementById(wx).value;
+				 var z=document.getElementById(bx).value;
+				 var x2=document.getElementById("slotno").value;
+				 var pattern = /^[0-9]{1,9}$/;
+			 	 var pattern1 = /^[1-4]{1}$/;
+				
+			 if((x==NaN || x==0 || x==""|| x==' ' || x===undefined )&&( y==NaN || y==0 || y==""|| y==' ' || y===undefined )&&( z==NaN || z==0 || z==""|| z==' ' || z===undefined )&&(x2==NaN || x2==0 || x2==""|| x2==' ' || x2===undefined))
+			 {
+		        document.getElementById("hidex").innerHTML= "please enter below values. " ;
+               return false;
+			 }
+			
+			 if(x==NaN || x==0 || x==""|| x==' ' || x===undefined)
+			 {
+	 		    document.getElementById("hidex").innerHTML= "please enter height " ;
+	            return false;
+	 		 }
+
+	 	      
+	         if(z==NaN || z==0 || z==""|| z==' ' || z===undefined )
+	 		{
+	 		 document.getElementById("hidex").innerHTML = "please enter breadth " ;
+	 		  return false;
+            }
+	 		
+	         if(y==NaN || y==0 || y==""|| y==' ' || y===undefined )
+	 		{
+               document.getElementById("hidex").innerHTML = "please enter width" ;
+	            return false;
+	 		}
+	 	
+	 		
+	 		if(x2==NaN || x2==0 || x2==""|| x2==' ' || x2===undefined )
+	 		{
+               document.getElementById("hidex").innerHTML= "please enter slotno as 1,2,3 or 4" ;
+	           return false;
+	 		 }
+
+	 	    		
+	 		if(x.match(pattern) && (y.match(pattern)) && (z.match(pattern)) )
+	 		{
+	 		    if(x2.match(pattern1))
+		 		{
+		 		   
+		 		return true;
+		 		}
+		 	    else
+		 		{
+		 	    	 document.getElementById("hidex").innerHTML= "Please enter values 1,2 3,4" ;
+		 		return false;
+		 		}
+	 		 
+	 		}
+            else
+	 		{
+	 			 document.getElementById("hidex").innerHTML= "Please enter values in digits only " ;
+	 		     return false;
+	 		}
+                       	 				           
+}	
+return true;
+                                
+                            
+	}
+function bpost(){
+		   
+		  var x1=document.getElementById("orderno").value;
+	        
+		    if(x1==NaN || x1==0 || x1==""|| x1==' ' || x1===undefined )
+	 		{
+              document.getElementById("hide4").innerHTML = "please enter order no" ;
+	          return   false;
+	 		 }
+	        
+	        var pattern = /^[0-9]{1,9}$/;
+	        
+	        if(x1.match(pattern) )
+	 		{
+ 	 		 return true;
+       		}
+	 		else
+	 		{
+ 			 document.getElementById("hide4").innerHTML= "please check order no" ;
+    	 		return false;
+	 		}
+	        
+	        return true;
+	}	
+
+
+
+    </script>
+    <style> 
+	#main
+	 {
+	    width: 1250px;
+	    height: 710px;
+	 }
+	 
+	 p.data
+	{
+    text-align: center;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:red;
+	}
+ 
+	
+	p2.data {
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:red;
+	}
+	
+#prime {
+
+	font-family: "Times New Roman", Times, serif;
+	
+	color:white;
+	}
+	
+#prime1 {
+
+	font-family: "Times New Roman", Times, serif;
+	
+	color:white;
+	}
+	h1.data {
+    text-align: center;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:white;
+	}
+	
+	label
+	{
+	width: 9em;
+	float: left;
+	text-align: right;
+	margin-right: 1em;
+	display: block
+	font-size: 1050px;
+	font-family: "Times New Roman", Times, serif;
+	}
+	
+	p1.data{
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:white;
+	}
+	
+	p1.selectdata{
+	width: 10em;
+	float: left;
+	text-align: right;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:white;
+	margin-right: 1em;
+	}
+	
+	fieldset.a{
+	 padding: 10px;
+	 border: 10px;
+	 margin: 20px;
+	 border-style: solid;
+	 border-width: 3px;
+	 border-color: white;
+	}
+	
+	#sub{
+ top: 200px;
+	    right:100px;
+
+	
+
+}
+	
+	#sub1 {
+	    top: 670px;
+	    right:1000px;
+	    color: red;
+	    height: 30px;
+	    width: 100px;
+	    font-size: 12px;
+	}
+	
+	legend{
+	color:white;
+	}
+	</style>
+</head>
+<body style="background-color:lightblue;">
+<div id="main">
+	 <div ><h1 class="data"> Item Slot Booking</h1>
+	
+	<fieldset class="a"  style="font-color:white;" >
+	 <p id="hidex" class="data"></p>
+	<legend >
+	<p1>Item Slot Booking</p>
+	</legend>
+
+<form id="prime" onsubmit="return apost(this);"  action="rest/item/add" method="GET" >
+
+  <p align ="right"  ><input type="submit" align="right" value="BookSlot" id="sub1" form="prime"  ></p>
+<p>&emsp;&emsp;&emsp;Slot no:&nbsp;<input type="text" id="slotno" name="slotno" >&emsp;&emsp;&emsp;
+Number of items: (max. 5)&nbsp; <input type="text" id="member" name="noofitems" ><a href="#" id="filldetails" onclick="addFields()" >Fill Details</a></p>
+ <br />    
+        
+    </form>
+
+
+</fieldset>
+	
+	<fieldset class="a"  style="font-color:white;" >
+	 <legend >
+	<p>Order Details </p>
+	</legend>
+	
+	<form id="prime1" onsubmit="return bpost(this);"  method="GET" action="rest/item/details" >
+	<br>
+	<br>
+	<p>&emsp;&emsp;&emsp;Order no:&nbsp;</p1></label><input type="text" name="orderno" id="orderno" ><p2 class="data" id="hide4"></p2></br>
+	<br>
+	<br>
+	<label for="orderslot"><input type="submit" value="Search" id="sub1" name="orderslot"></br>
+	</br>
+	</br>
+	</form>
+	
+	</fieldset>
+</div>
+</div>
+	
+	</body>
+
+</html>
